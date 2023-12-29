@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Worldwide - project 2</title>
+    <link rel="shortcut icon" href="assets/images/blackicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="assets/js/main.js" type="module"></script>
+    <!-- script src of MOMENT JS: -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script> -->
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div class="spinner-wrapper">
+      <div class="spinner-border text-warning" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    
+    <h1>Currency Worldwide</h1>
+    <!-- MODAL component - after the user choose more than 5 coins -->
+    <!-- Button trigger modal -->
+      <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-chosen-coins">
+        Launch demo modal
+    </button> -->
+  
+    <!-- NAV-BAR TABS: -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" 
+        type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Home</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" 
+        type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Live Reports</button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" 
+        type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">About</button>
+      </li>
+    </ul>
+
+    <!-- HOME TAB: -->
+    <!-- CARDS: -->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <!-- SEARCH input & button -->
+        <form id="search-form">
+          <input id="user-input-search" type="text" placeholder="Please enter the coin's name" required>
+          <button id="search-coin-button" class="btn btn-warning">Search</button>
+        </form>
+
+        <!-- ALL COINS - CARDS -->
+        <div class="row" id="coins-container">
+        </div>
+      </div>
+    
+      <!-- CARDS COLLAPSER - "more info section" -->
+      <!-- more info - created in DOM after the user clicked on "more info" button -->
+
+      <!-- REPORT TAB: -->
+      <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <div id="live-report-container">
+          <img src="assets/images/construction-helmet.jpg">
+          <h2 id="live-report-header">I'm working on it!</h2>
+          <p>"Live Reports" tab is currently under construction. <br>
+              Please check back soon.
+          </p>
+        </div>
+      </div>
+      
+      <!-- ABOUT TAB: -->
+      <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <div id="about-container">
+          <div id="about-me">
+            <div>Hello! <br>
+              My name is Mazal Krispin, I am living in Kiryat Motzkin.<br>
+              For the past few years I worked as a clinical nutrition in different health organizations. <br>
+              Recently I have decided of making a career retraining to "Full Stack WEB developer" at "John Bryce collage". <br>
+              So far I have specialized in: HTML, CSS3, Bootstrap, Advanced JavaScript, jQuery, AJAX and REST API's. <br>
+              I can proudly say that I am back to my old roots. Before I had recruited to the army,  <br>
+              I studied Practical Electronics Engineering at "IAF Technological College" in Haifa.    
+            </div><br>
+            <div id="myPicture"><img src="assets/images/myPicture.jpg"></div><br>
+          </div>
+          <hr>
+          <div id="project-info">
+            <div>"Currency Worldwide" is my second project.
+              This is a single page application, that include variety of features, such as: 
+              <ul>
+                <li>Information about different currencies by utilization of 2 API's or cache.</li>
+                <li>Search option of desired currency.</li>
+                <li>Select currencies by toggle button</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+          <!-- MODAL -->
+          <div class="modal fade" id="modal-chosen-coins" tabindex="-1" aria-labelledby="modal-chosen-coins-label" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h2 class="modal-title fs-5" id="modal-chosen-coins-label">You have reached to max coins selections,
+                    you can remove one of your current selections
+                  </h2>
+                  <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                </div>
+                
+                <form id="modal-form-exchange-coin">
+                  <div class="modal-body">
+                    <!-- 5 chosen coins with switch button -->
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" id="dismiss-modal-button" class="btn btn-danger" data-bs-dismiss="modal">Dismiss</button>
+                    <button type="button" id="save-modal-button" class="btn btn-success">Save changes</button>
+                    <!-- <button type="submit" id="save-modal-button" class="btn btn-primary">Save changes</button> -->
+                  </div>
+                </form>
+                
+              </div>
+            </div>
+          </div>
+
+  </body>
+  </html>
+  
